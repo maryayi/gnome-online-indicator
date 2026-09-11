@@ -42,13 +42,14 @@ const OnlineIndicator = GObject.registerClass(
 class OnlineIndicator extends PanelMenu.Button {
     _init(extension) {
         super._init(0.0, 'Online Indicator');
+        this.add_style_class_name('online-indicator-button');
 
         this._extension = extension;
         this._settings = extension.getSettings();
         this._pinger = new Pinger();
         this._latestSample = null;
 
-        this._icon = new St.Icon({ style_class: 'system-status-icon' });
+        this._icon = new St.Icon({ style_class: 'system-status-icon online-indicator-icon' });
         this.add_child(this._icon);
         this._setIcon('grey');
 
