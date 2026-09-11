@@ -1,0 +1,9 @@
+.online-indicator-chart {
+    width: 260px;
+    height: 40px;
+}
+
+.online-indicator-range-label {
+    font-size: smaller;
+    opacity: 0.7;
+}

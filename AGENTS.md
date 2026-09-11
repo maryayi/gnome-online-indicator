@@ -16,20 +16,21 @@ no npm/TypeScript.
 
 ## Commands
 
-UUID: `online-indicator@mahdiaryayi`
+UUID: `gnome-online-indicator@maryayi`
 
 ```sh
 make install     # (planned) symlink repo into ~/.local/share/gnome-shell/extensions/<uuid> + compile schemas
 make pack        # (planned) gnome-extensions pack → uploadable zip
 glib-compile-schemas schemas/                          # after every .gschema.xml edit
-gnome-extensions enable online-indicator@mahdiaryayi
-gnome-extensions prefs online-indicator@mahdiaryayi    # open the settings window
+gnome-extensions enable gnome-online-indicator@maryayi
+gnome-extensions prefs gnome-online-indicator@maryayi    # open the settings window
 journalctl -f -o cat /usr/bin/gnome-shell              # extension logs and JS errors
 ```
 
 **Reloading code:** GNOME 45+ caches ES modules, so disabling and re-enabling
 does **not** pick up changes to `extension.js` or `pinger.js`. Restart the shell
 instead:
+
 - X11: `Alt+F2` → `r`.
 - Wayland: log out, or test in `dbus-run-session -- gnome-shell --nested --wayland`.
 

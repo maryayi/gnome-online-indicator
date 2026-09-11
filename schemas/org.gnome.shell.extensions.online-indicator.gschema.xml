@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schemalist>
+  <schema id="org.gnome.shell.extensions.online-indicator"
+          path="/org/gnome/shell/extensions/online-indicator/">
+
+    <key name="host" type="s">
+      <default>'8.8.8.8'</default>
+      <summary>Host to ping</summary>
+      <description>
+        Hostname or IP address periodically pinged to determine connectivity.
+        Falls back to 8.8.8.8 if empty.
+      </description>
+    </key>
+
+    <key name="interval" type="i">
+      <default>5</default>
+      <range min="2" max="300"/>
+      <summary>Ping interval</summary>
+      <description>Seconds between connectivity checks.</description>
+    </key>
+
+    <key name="loss-threshold" type="i">
+      <default>50</default>
+      <range min="1" max="100"/>
+      <summary>Packet loss threshold</summary>
+      <description>
+        Packet loss percentage, from the latest check, at or above which the
+        indicator turns red.
+      </description>
+    </key>
+
+  </schema>
+</schemalist>

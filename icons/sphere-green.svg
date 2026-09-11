@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">
+  <defs>
+    <radialGradient id="g" cx="35%" cy="30%" r="75%">
+      <stop offset="0%" stop-color="#b6f2c9"/>
+      <stop offset="55%" stop-color="#3fc46f"/>
+      <stop offset="100%" stop-color="#1c7a41"/>
+    </radialGradient>
+  </defs>
+  <circle cx="8" cy="8" r="6.5" fill="url(#g)"/>
+</svg>

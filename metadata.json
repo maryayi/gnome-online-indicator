@@ -1,0 +1,8 @@
+{
+  "uuid": "gnome-online-indicator@maryayi",
+  "name": "Online Indicator",
+  "description": "Shows a colored sphere in the top bar reflecting internet connectivity, based on periodic pings to a configurable host.",
+  "shell-version": ["46"],
+  "settings-schema": "org.gnome.shell.extensions.online-indicator",
+  "version-name": "0.1"
+}

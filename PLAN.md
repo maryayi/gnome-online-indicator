@@ -47,12 +47,12 @@ Target: GNOME Shell 46 (Ubuntu 24.04 LTS).
 
 Loss is taken from the **latest check**.
 
-| Icon      | Condition                                                         |
-|-----------|-------------------------------------------------------------------|
-| 🟢 green  | 0 % loss                                                          |
+| Icon      | Condition                                                               |
+| --------- | ----------------------------------------------------------------------- |
+| 🟢 green  | 0 % loss                                                                |
 | 🟠 orange | 0 % < loss < `loss-threshold` (default 50 %) — with 5 packets: 1–2 lost |
-| 🔴 red    | loss ≥ `loss-threshold`, no reply at all, or ping error           |
-| ⚪ grey   | no result yet (just started)                                      |
+| 🔴 red    | loss ≥ `loss-threshold`, no reply at all, or ping error                 |
+| ⚪ grey   | no result yet (just started)                                            |
 
 ### Popup (click on the icon)
 
@@ -81,11 +81,11 @@ Loss is taken from the **latest check**.
 
 GSettings schema `org.gnome.shell.extensions.online-indicator`:
 
-| Key              | Type | Default     | Range      | Widget         |
-|------------------|------|-------------|------------|----------------|
-| `host`           | `s`  | `'8.8.8.8'` | —          | `Adw.EntryRow` |
-| `interval`       | `i`  | `5`         | 2–300 s    | `Adw.SpinRow`  |
-| `loss-threshold` | `i`  | `50`        | 1–100 %    | `Adw.SpinRow`  |
+| Key              | Type | Default     | Range   | Widget         |
+| ---------------- | ---- | ----------- | ------- | -------------- |
+| `host`           | `s`  | `'8.8.8.8'` | —       | `Adw.EntryRow` |
+| `interval`       | `i`  | `5`         | 2–300 s | `Adw.SpinRow`  |
+| `loss-threshold` | `i`  | `50`        | 1–100 % | `Adw.SpinRow`  |
 
 Changes apply live, no restart needed. The extension listens to `changed::*`
 and restarts the timer. Changing `host` also clears history, since old samples
@@ -111,7 +111,7 @@ gnome-online-indicator/
 └── README.md
 ```
 
-UUID: `online-indicator@mahdiaryayi` (easy to change before first install).
+UUID: `gnome-online-indicator@maryayi` (easy to change before first install).
 
 ## 4. Implementation notes
 
@@ -141,6 +141,7 @@ UUID: `online-indicator@mahdiaryayi` (easy to change before first install).
   - destroy the indicator and null out references
 
   No work at import time.
+
 - **History is in memory only**: it resets on shell restart, and on screen lock
   (GNOME disables extensions while locked). That's acceptable for v1.
 
@@ -158,7 +159,7 @@ UUID: `online-indicator@mahdiaryayi` (easy to change before first install).
 ## 6. Verification
 
 - **Dev loop** (X11): `make install`, then `Alt+F2` → `r` to reload the shell,
-  then `gnome-extensions enable online-indicator@mahdiaryayi`.
+  then `gnome-extensions enable gnome-online-indicator@maryayi`.
   Logs: `journalctl -f -o cat /usr/bin/gnome-shell`.
 - **Green**: the default host `8.8.8.8` turns green within one interval.
 - **Red**: host `192.0.2.1` (reserved TEST-NET, never answers) or
