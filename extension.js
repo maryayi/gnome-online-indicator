@@ -48,6 +48,7 @@ class OnlineIndicator extends PanelMenu.Button {
         this._settings = extension.getSettings();
         this._pinger = new Pinger();
         this._latestSample = null;
+        this._aboutDialog = null;
 
         this._icon = new St.Icon({ style_class: 'system-status-icon online-indicator-icon' });
         this.add_child(this._icon);
@@ -238,6 +239,11 @@ class OnlineIndicator extends PanelMenu.Button {
             },
         ]);
 
+        this._aboutDialog = dialog;
+        dialog.connect('closed', () => {
+            this._aboutDialog = null;
+        });
+
         dialog.open();
     }
 
@@ -245,6 +251,11 @@ class OnlineIndicator extends PanelMenu.Button {
         this._pinger.onSample = null;
         this._pinger.stop();
         this._pinger = null;
+
+        if (this._aboutDialog) {
+            this._aboutDialog.destroy();
+            this._aboutDialog = null;
+        }
 
         if (this._settingsChangedId) {
             this._settings.disconnect(this._settingsChangedId);

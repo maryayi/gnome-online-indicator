@@ -9,21 +9,20 @@ It shows a colored sphere in the Ubuntu top bar that reflects connectivity,
 based on periodic ICMP pings to a configurable host. The target is GNOME Shell 46 /
 Ubuntu 24.04. The dev machine runs an X11 session.
 
-**Status:** planning phase. `PLAN.md` is the spec and is currently the only
-file. Build in the order given in PLAN.md §5. Items in PLAN.md §7 are
-deliberately out of scope. Keep it simple: no dependencies, no build step,
+**Status:** implemented and packaged for extensions.gnome.org (GNOME Shell 46
+only). `PLAN.md` is the spec. Keep it simple: no dependencies, no build step,
 no npm/TypeScript.
 
 ## Commands
 
-UUID: `gnome-online-indicator@maryayi`
+UUID: `online-indicator@maryayi.github.io`
 
 ```sh
-make install     # (planned) symlink repo into ~/.local/share/gnome-shell/extensions/<uuid> + compile schemas
-make pack        # (planned) gnome-extensions pack → uploadable zip
+make install     # symlink repo into ~/.local/share/gnome-shell/extensions/<uuid> + compile schemas
+make pack        # gnome-extensions pack → uploadable zip
 glib-compile-schemas schemas/                          # after every .gschema.xml edit
-gnome-extensions enable gnome-online-indicator@maryayi
-gnome-extensions prefs gnome-online-indicator@maryayi    # open the settings window
+gnome-extensions enable online-indicator@maryayi.github.io
+gnome-extensions prefs online-indicator@maryayi.github.io    # open the settings window
 journalctl -f -o cat /usr/bin/gnome-shell              # extension logs and JS errors
 ```
 

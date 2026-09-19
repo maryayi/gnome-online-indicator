@@ -5,6 +5,7 @@ const PING_COUNT = 5;
 const PING_PACKET_INTERVAL = '0.2';
 const PING_TIMEOUT = '2';
 const HISTORY_WINDOW_MS = 10 * 60 * 1000;
+const DEBUG = false;
 
 /**
  * Parse the summary output of `ping -n -q -c N`.
@@ -162,7 +163,8 @@ export class Pinger {
         const cutoff = Date.now() - HISTORY_WINDOW_MS;
         this._history = this._history.filter(s => s.time >= cutoff);
 
-        console.log(`[online-indicator] ${this._host}: sent=${entry.sent} received=${entry.received} avgRtt=${entry.avgRtt ?? 'n/a'}`);
+        if (DEBUG)
+            console.log(`[online-indicator] ${this._host}: sent=${entry.sent} received=${entry.received} avgRtt=${entry.avgRtt ?? 'n/a'}`);
 
         if (this.onSample)
             this.onSample(entry);

@@ -108,10 +108,11 @@ gnome-online-indicator/
 │   ├── sphere-red.svg
 │   └── sphere-grey.svg
 ├── Makefile           # install (dev symlink + compile schemas), pack (zip)
+├── LICENSE            # GPL-2.0-or-later
 └── README.md
 ```
 
-UUID: `gnome-online-indicator@maryayi` (easy to change before first install).
+UUID: `online-indicator@maryayi.github.io`.
 
 ## 4. Implementation notes
 
@@ -159,7 +160,7 @@ UUID: `gnome-online-indicator@maryayi` (easy to change before first install).
 ## 6. Verification
 
 - **Dev loop** (X11): `make install`, then `Alt+F2` → `r` to reload the shell,
-  then `gnome-extensions enable gnome-online-indicator@maryayi`.
+  then `gnome-extensions enable online-indicator@maryayi.github.io`.
   Logs: `journalctl -f -o cat /usr/bin/gnome-shell`.
 - **Green**: the default host `8.8.8.8` turns green within one interval.
 - **Red**: host `192.0.2.1` (reserved TEST-NET, never answers) or
@@ -173,5 +174,5 @@ UUID: `gnome-online-indicator@maryayi` (easy to change before first install).
 ## 7. Out of scope (v1)
 
 Persisting history, notifications, latency-based coloring, multiple hosts,
-translations, publishing to extensions.gnome.org. `make pack` will already
-produce an uploadable zip if that's wanted later.
+translations. Published to extensions.gnome.org for GNOME Shell 46; `make pack`
+produces the uploadable zip.

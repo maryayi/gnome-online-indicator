@@ -23,20 +23,20 @@ success rate.
 ## Install (from source)
 
 ```sh
-git clone <this repo>
+git clone https://github.com/maryayi/gnome-online-indicator
 cd gnome-online-indicator
 make install
 ```
 
 This symlinks the repo into
-`~/.local/share/gnome-shell/extensions/gnome-online-indicator@maryayi` and
+`~/.local/share/gnome-shell/extensions/online-indicator@maryayi.github.io` and
 compiles the GSettings schema.
 
 Then, on X11, reload the shell (`Alt+F2` → `r`) — or on Wayland, log out and
 back in — so `gnome-shell` picks up the new extension, and enable it:
 
 ```sh
-gnome-extensions enable gnome-online-indicator@maryayi
+gnome-extensions enable online-indicator@maryayi.github.io
 ```
 
 A grey sphere appears in the top bar immediately; it turns green, orange, or
@@ -45,7 +45,7 @@ red once the first ping check completes.
 ## Settings
 
 ```sh
-gnome-extensions prefs gnome-online-indicator@maryayi
+gnome-extensions prefs online-indicator@maryayi.github.io
 ```
 
 | Setting        | Default   | Description                                   |
@@ -62,11 +62,17 @@ Changes apply immediately, no reload needed.
 make pack
 ```
 
-Produces `gnome-online-indicator@maryayi.shell-extension.zip`, installable via
-`gnome-extensions install <zip>` or the Extensions app.
+Produces `online-indicator@maryayi.github.io.shell-extension.zip`, installable
+via `gnome-extensions install <zip>` or the Extensions app.
 
 ## Development
 
 See [AGENTS.md](AGENTS.md) for architecture notes, the code-reload workflow,
 and gotchas (ping invocation, Cairo cleanup, import paths). See
 [PLAN.md](PLAN.md) for the original spec and manual verification scenarios.
+
+## License
+
+Online Indicator is distributed under the terms of the GNU General Public
+License, version 2 or (at your option) any later version. See [LICENSE](LICENSE).
+
