@@ -2,7 +2,7 @@
   "uuid": "online-indicator@maryayi.github.io",
   "name": "Online Indicator",
   "description": "Shows a colored sphere in the top bar that reflects your internet connectivity, based on periodic ICMP pings to a configurable host.\n\n* Green: no packet loss\n* Orange: some packet loss, below the configured threshold\n* Red: packet loss at or above the threshold, or no reply at all\n* Grey: no result yet\n\nClick the icon for a status line, a 10-minute latency chart and the recent success rate. Host, check interval and loss threshold are configurable in the extension settings.",
-  "shell-version": ["46"],
+  "shell-version": ["46", "47", "48", "49", "50"],
   "url": "https://github.com/maryayi/gnome-online-indicator",
   "settings-schema": "org.gnome.shell.extensions.online-indicator",
   "version-name": "0.1"

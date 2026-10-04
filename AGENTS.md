@@ -6,8 +6,8 @@ Guidance for AI coding agents working in this repository.
 
 Online Indicator is a GNOME Shell extension written in GJS (JavaScript ES modules).
 It shows a colored sphere in the Ubuntu top bar that reflects connectivity,
-based on periodic ICMP pings to a configurable host. The target is GNOME Shell 46 /
-Ubuntu 24.04. The dev machine runs an X11 session.
+based on periodic ICMP pings to a configurable host. The target is GNOME Shell 46-50 /
+Ubuntu 24.04-26.10. The dev machine runs an X11 session.
 
 **Status:** implemented and packaged for extensions.gnome.org (GNOME Shell 46
 only). `PLAN.md` is the spec. Keep it simple: no dependencies, no build step,
