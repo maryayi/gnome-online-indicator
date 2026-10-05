@@ -70,6 +70,24 @@ There are two processes, linked only through GSettings.
 `interval` and `loss-threshold`. Adding or changing a key means updating the
 schema, `prefs.js` and `extension.js` together, then recompiling the schema.
 
+## Cinnamon applet (`cinnamon/`)
+
+A port for the Cinnamon panel (Cinnamon 6.x), installed with
+`make install-cinnamon`, which symlinks `cinnamon/` into
+`~/.local/share/cinnamon/applets/<uuid>`.
+
+- Cinnamon doesn't load ES modules. `applet.js` uses `imports.ui.*` /
+  `imports.gi.*` and `require('./pinger')`, and exports `main()`.
+- `cinnamon/pinger.js` is a CommonJS copy of `pinger.js`. Keep the two in sync.
+- `cinnamon/icons` is a symlink to `../icons`.
+- Settings come from `settings-schema.json` (Cinnamon's `AppletSettings`), not
+  GSettings. Values are stored in
+  `~/.config/cinnamon/spices/<uuid>/<uuid>.json`.
+- Cleanup goes in `on_applet_removed_from_panel()`.
+- Reload after code changes:
+  `dbus-send --session --dest=org.Cinnamon --type=method_call /org/Cinnamon org.Cinnamon.ReloadXlet string:<uuid> string:APPLET`.
+- Logs: `journalctl -f -o cat _COMM=cinnamon`.
+
 ## Gotchas
 
 - **ICMP:** send it through `/usr/bin/ping`, which has `cap_net_raw`.

@@ -1,0 +1,8 @@
+{
+  "uuid": "online-indicator@maryayi.github.io",
+  "name": "Online Indicator",
+  "description": "Shows a colored sphere in the panel that reflects your internet connectivity, based on periodic ICMP pings to a configurable host. Green: no packet loss. Orange: some loss, below the threshold. Red: loss at or above the threshold, or no reply. Grey: no result yet.",
+  "version": "0.1",
+  "max-instances": 1,
+  "url": "https://github.com/maryayi/gnome-online-indicator"
+}

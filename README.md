@@ -56,6 +56,20 @@ gnome-extensions prefs online-indicator@maryayi.github.io
 
 Changes apply immediately, no reload needed.
 
+## Cinnamon
+
+A Cinnamon applet version lives in [`cinnamon/`](cinnamon/). It shows the same
+sphere, popup and chart, and has the same settings.
+
+```sh
+make install-cinnamon
+```
+
+This symlinks `cinnamon/` into
+`~/.local/share/cinnamon/applets/online-indicator@maryayi.github.io`. Then
+right-click the panel → **Applets**, and add **Online Indicator**. Its settings
+are under **Settings** in the applet's menu, or in the Applets dialog.
+
 ## Packaging
 
 ```sh
